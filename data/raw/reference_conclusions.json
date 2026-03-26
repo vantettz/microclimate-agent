@@ -1,0 +1,302 @@
+[
+  {
+    "task_id": "task_01",
+    "grid_batch": "G001-G200",
+    "question": "全量数据分析: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.81, "p": 0.0, "R2": 0.65},
+      "tvf_mean_mean_temp": {"r": -0.84, "p": 0.0, "R2": 0.71},
+      "HW_wind_speed": {"r": -0.73, "p": 0.0, "R2": 0.53}
+    },
+    "interpretation": "全量数据验证了核心物理规律：SVF与PET强正相关，TVF对气温有显著削减作用。",
+    "followup": "需进一步通过偏相关分析排除不同形态指标间的共线性影响。",
+    "domain_insight": "城市形态对热环境的影响具有全局一致性，高SVF是午后热压力的首要来源。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_02",
+    "grid_batch": "EW_Streets",
+    "question": "东西向街道分析: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.85, "p": 0.0, "R2": 0.72},
+      "tvf_mean_mean_temp": {"r": -0.82, "p": 0.0, "R2": 0.67},
+      "HW_wind_speed": {"r": -0.75, "p": 0.0, "R2": 0.56}
+    },
+    "interpretation": "东西向街道中SVF对PET的贡献率极高，主要源于夏季午后强烈的西晒辐射。",
+    "followup": "建议对比相同SVF下东西向与南北向的PET差值。",
+    "domain_insight": "东西向街道由于日照时长和角度问题，热舒适度对遮阴的需求远高于其他朝向。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_03",
+    "grid_batch": "NS_Streets",
+    "question": "南北向街道分析: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.78, "p": 0.0, "R2": 0.61},
+      "tvf_mean_mean_temp": {"r": -0.86, "p": 0.0, "R2": 0.74},
+      "HW_wind_speed": {"r": -0.71, "p": 0.0, "R2": 0.5}
+    },
+    "interpretation": "南北向街道中TVF的降温效果依然稳健，PET受SVF影响虽强但略低于东西向。",
+    "followup": "可分析南北向街道在午后是否存在由建筑阴影形成的局部凉爽区。",
+    "domain_insight": "南北向街道在午后可通过建筑自遮挡缓解部分热应力。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_04",
+    "grid_batch": "Commercial",
+    "question": "商业街分析: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["H_W_ratio", "wind_speed"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.8, "p": 0.0, "R2": 0.64},
+      "tvf_mean_mean_temp": {"r": -0.83, "p": 0.0, "R2": 0.69},
+      "HW_wind_speed": {"r": -0.85, "p": 0.0, "R2": 0.72}
+    },
+    "interpretation": "商业街中H/W ratio对风速的阻碍作用极强，风速降低进一步恶化了热舒适度。",
+    "followup": "建议探究商业区增加通风廊道对降低PET的效果。",
+    "domain_insight": "高密度商业街的深街谷效应是导致近地面无风、热量囤积的主因。",
+    "dominant_factor": "H_W_ratio"
+  },
+  {
+    "task_id": "task_05",
+    "grid_batch": "Residential",
+    "question": "居住区分析: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.82, "p": 0.0, "R2": 0.67},
+      "tvf_mean_mean_temp": {"r": -0.85, "p": 0.0, "R2": 0.72},
+      "HW_wind_speed": {"r": -0.52, "p": 0.0, "R2": 0.27}
+    },
+    "interpretation": "居住区TVF对温度的调节作用最显著，且风速受H/W的影响相对商业街较小。",
+    "followup": "分析居住区绿地率与TVF的关联性。",
+    "domain_insight": "居住区布局相对松散，对自然风的阻隔不明显，植物降温收益更高。",
+    "dominant_factor": "tvf_mean"
+  },
+  {
+    "task_id": "task_06",
+    "grid_batch": "EW_Commercial",
+    "question": "东西向商业街: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["H_W_ratio", "wind_speed"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.88, "p": 0.0, "R2": 0.77},
+      "tvf_mean_mean_temp": {"r": -0.8, "p": 0.0, "R2": 0.64},
+      "HW_wind_speed": {"r": -0.88, "p": 0.0, "R2": 0.77}
+    },
+    "interpretation": "这是微气候最恶劣的组合：强西晒配上极低风速，PET均值最高。",
+    "followup": "重点分析该区域在15:00后的热滞后效应。",
+    "domain_insight": "东西向商业街是城市防暑降温的重点治理区域。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_07",
+    "grid_batch": "EW_Residential",
+    "question": "东西向居住区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.83, "p": 0.0, "R2": 0.69},
+      "tvf_mean_mean_temp": {"r": -0.84, "p": 0.0, "R2": 0.71},
+      "HW_wind_speed": {"r": -0.48, "p": 0.0, "R2": 0.23}
+    },
+    "interpretation": "居住区由于绿化存在，缓解了部分东西向带来的辐射压力。",
+    "followup": "建议通过优化乔木配置来遮挡西晒。",
+    "domain_insight": "植被可视因子的提升能有效对冲东西向街道的高温风险。",
+    "dominant_factor": "tvf_mean"
+  },
+  {
+    "task_id": "task_08",
+    "grid_batch": "NS_Commercial",
+    "question": "南北向商业街: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["H_W_ratio", "wind_speed"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.75, "p": 0.0, "R2": 0.56},
+      "tvf_mean_mean_temp": {"r": -0.88, "p": 0.0, "R2": 0.77},
+      "HW_wind_speed": {"r": -0.82, "p": 0.0, "R2": 0.67}
+    },
+    "interpretation": "风速对PET的解释力在此增强，高H/W带来的遮阴有利有弊。",
+    "followup": "研究该街道类型在不同季节的通用性。",
+    "domain_insight": "南北向商业街应优先考虑引风设计以改善热舒适度。",
+    "dominant_factor": "H_W_ratio"
+  },
+  {
+    "task_id": "task_09",
+    "grid_batch": "NS_Residential",
+    "question": "南北向居住区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["tvf_mean", "mean_temp"], ["svf_mean", "PET"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.8, "p": 0.0, "R2": 0.64},
+      "tvf_mean_mean_temp": {"r": -0.85, "p": 0.0, "R2": 0.72},
+      "HW_wind_speed": {"r": -0.55, "p": 0.0, "R2": 0.3}
+    },
+    "interpretation": "此类街道的热环境最为温和，各指标呈现稳健线性关系。",
+    "followup": "验证此类环境下PET的标准差是否最小。",
+    "domain_insight": "南北向结合适度绿化是南方夏季最理想的街道形态。",
+    "dominant_factor": "tvf_mean"
+  },
+  {
+    "task_id": "task_10",
+    "grid_batch": "High_SVF",
+    "question": "SVF高值区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.62, "p": 0.0, "R2": 0.38},
+      "tvf_mean_mean_temp": {"r": -0.79, "p": 0.0, "R2": 0.62},
+      "HW_wind_speed": {"r": -0.68, "p": 0.0, "R2": 0.46}
+    },
+    "interpretation": "在极度开阔的区域，SVF即便小幅增加也会使PET接近极值。",
+    "followup": "探索该子集内风速对PET的敏感度。",
+    "domain_insight": "广场式街道必须通过遮阳设施补偿过大的天空可视因子。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_11",
+    "grid_batch": "Low_SVF",
+    "question": "SVF低值区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.58, "p": 0.0, "R2": 0.34},
+      "tvf_mean_mean_temp": {"r": -0.82, "p": 0.0, "R2": 0.67},
+      "HW_wind_speed": {"r": -0.72, "p": 0.0, "R2": 0.52}
+    },
+    "interpretation": "低SVF通常对应深街谷，此时PET更多受风速和空气温度波动影响。",
+    "followup": "分析该环境下长波辐射的交互作用。",
+    "domain_insight": "低SVF区域热量容易囤积，通风改善比辐射屏蔽更重要。",
+    "dominant_factor": "wind_speed"
+  },
+  {
+    "task_id": "task_12",
+    "grid_batch": "High_TVF",
+    "question": "TVF高值区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.78, "p": 0.0, "R2": 0.61},
+      "tvf_mean_mean_temp": {"r": -0.65, "p": 0.0, "R2": 0.42},
+      "HW_wind_speed": {"r": -0.7, "p": 0.0, "R2": 0.49}
+    },
+    "interpretation": "高植被覆盖区域平均气温明显低于全局，热舒适度改善明显。",
+    "followup": "研究高TVF是否会因阻挡气流而反作用于PET。",
+    "domain_insight": "林荫大道通过降温和遮阴的双重作用将PET维持在较低水平。",
+    "dominant_factor": "tvf_mean"
+  },
+  {
+    "task_id": "task_13",
+    "grid_batch": "Low_TVF",
+    "question": "Low_TVF: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.85, "p": 0.0, "R2": 0.72},
+      "tvf_mean_mean_temp": {"r": -0.55, "p": 0.0, "R2": 0.3},
+      "HW_wind_speed": {"r": -0.74, "p": 0.0, "R2": 0.55}
+    },
+    "interpretation": "由于缺乏植被，温度与SVF高度耦合，温升迅速。",
+    "followup": "评估该批次补植后PET的理论下降空间。",
+    "domain_insight": "缺乏植物的街道对形态变化的抗干扰能力极差。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_14",
+    "grid_batch": "High_HW",
+    "question": "H/W高值区: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["H_W_ratio", "wind_speed"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.76, "p": 0.0, "R2": 0.58},
+      "tvf_mean_mean_temp": {"r": -0.84, "p": 0.0, "R2": 0.71},
+      "HW_wind_speed": {"r": -0.7, "p": 0.0, "R2": 0.49}
+    },
+    "interpretation": "高H/W比在降低风速的同时提供了遮阴，两者对PET的影响存在互补。",
+    "followup": "通过多元回归分析H/W对PET的正负抵消作用。",
+    "domain_insight": "深街谷设计是一把双刃剑：遮阴带来MRT降低，但通风不畅可能推高气温。",
+    "dominant_factor": "H_W_ratio"
+  },
+  {
+    "task_id": "task_15",
+    "grid_batch": "Low_HW",
+    "question": "H_W_ratio<0.8: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["H_W_ratio", "wind_speed"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.82, "p": 0.0, "R2": 0.67},
+      "tvf_mean_mean_temp": {"r": -0.83, "p": 0.0, "R2": 0.69},
+      "HW_wind_speed": {"r": -0.45, "p": 0.0, "R2": 0.2}
+    },
+    "interpretation": "开阔街道风速普遍较高，但风速对PET的解释力在此不如SVF强。",
+    "followup": "探究在低H/W环境下增加植被的效果。",
+    "domain_insight": "低H/W街道的通风阈值高，热环境主要由辐射控制。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_16",
+    "grid_batch": "High_Temp",
+    "question": "高温子集: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.68, "p": 0.0, "R2": 0.46},
+      "tvf_mean_mean_temp": {"r": -0.5, "p": 0.003, "R2": 0.25},
+      "HW_wind_speed": {"r": -0.72, "p": 0.0, "R2": 0.52}
+    },
+    "interpretation": "高温环境下，PET波动受风速的影响开始显著增加。",
+    "followup": "分析湿度对极端高温网格的额外贡献。",
+    "domain_insight": "当气温超过37℃，降低MRT对改善舒适度的边际效应开始递减。",
+    "dominant_factor": "mean_temp"
+  },
+  {
+    "task_id": "task_17",
+    "grid_batch": "Low_Wind",
+    "question": "低风速子集: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["H_W_ratio", "wind_speed"], ["svf_mean", "PET"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.84, "p": 0.0, "R2": 0.71},
+      "tvf_mean_mean_temp": {"r": -0.81, "p": 0.0, "R2": 0.66},
+      "HW_wind_speed": {"r": -0.55, "p": 0.0, "R2": 0.3}
+    },
+    "interpretation": "无风环境下热应力无处宣泄，SVF的负面影响达到最大。",
+    "followup": "建议通过水体降温来弥补低风速下的热不适。",
+    "domain_insight": "低风速区域极度依赖遮阴系统。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_18",
+    "grid_batch": "High_Humid",
+    "question": "高湿度子集: 形态指标与热舒适参数的关系分析",
+    "significant_pairs": [["humidity", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.81, "p": 0.0, "R2": 0.66},
+      "tvf_mean_mean_temp": {"r": -0.62, "p": 0.0, "R2": 0.38},
+      "HW_wind_speed": {"r": -0.74, "p": 0.0, "R2": 0.55}
+    },
+    "interpretation": "湿度与温度呈反比关系，高湿度往往出现在气温较低、TVF较高的街道。",
+    "followup": "评估高湿度是否显著增加了体感闷热度。",
+    "domain_insight": "高湿度背景下，风速的蒸发冷却效应至关重要。",
+    "dominant_factor": "mean_temp"
+  },
+  {
+    "task_id": "task_19",
+    "grid_batch": "G001-G100",
+    "question": "前半段测点分析: 验证模型稳定性",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.83, "p": 0.0, "R2": 0.69},
+      "tvf_mean_mean_temp": {"r": -0.85, "p": 0.0, "R2": 0.72},
+      "HW_wind_speed": {"r": -0.74, "p": 0.0, "R2": 0.55}
+    },
+    "interpretation": "样本前半段各核心指标相关性稳定，符合物理分布规律。",
+    "followup": "无需特殊调整，可直接用于模型训练。",
+    "domain_insight": "随机采样的稳定性证明了数据集质量可靠。",
+    "dominant_factor": "svf_mean"
+  },
+  {
+    "task_id": "task_20",
+    "grid_batch": "G101-G200",
+    "question": "后半段测点分析: 验证模型一致性",
+    "significant_pairs": [["svf_mean", "PET"], ["tvf_mean", "mean_temp"]],
+    "stats": {
+      "svf_mean_PET": {"r": 0.79, "p": 0.0, "R2": 0.62},
+      "tvf_mean_mean_temp": {"r": -0.83, "p": 0.0, "R2": 0.69},
+      "HW_wind_speed": {"r": -0.72, "p": 0.0, "R2": 0.52}
+    },
+    "interpretation": "后半段样本与前半段具有高度统计一致性，无显著离群误差。",
+    "followup": "建议合并全量数据进行交叉验证。",
+    "domain_insight": "数据一致性是Agent准确识别形态-微气候模式的基础。",
+    "dominant_factor": "svf_mean"
+  }
+]
