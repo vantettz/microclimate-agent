@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🏙️ 城市街道环境质量分析平台")
+st.title("🏙️ 城市街景多模态视听微气候变量综合分析")
 st.caption("支持热舒适、视觉质量、声环境三维度综合分析")
 
 # ─── session_state 初始化 ────────────────────────────────
