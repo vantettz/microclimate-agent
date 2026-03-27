@@ -1,0 +1,11 @@
+streamlit
+pandas
+scipy
+scikit-learn
+dashscope
+librosa
+Pillow
+requests
+python-dotenv
+numpy
+openai
