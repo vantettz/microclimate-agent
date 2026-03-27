@@ -116,7 +116,42 @@ has_any_input = any([
 ])
 
 if not has_any_input:
-    st.info("👈 请在左侧上传至少一种数据文件开始分析")
+    st.markdown("---")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown("### 📊 热舒适分析")
+        st.markdown("上传街道格网气候数据（CSV），自动探索SVF、TVF、H/W ratio等形态指标与PET、MRT等热舒适参数的显著关系。")
+    
+    with col2:
+        st.markdown("### 🖼️ 视觉质量分析")
+        st.markdown("上传街景图片，AI自动识别空间形态特征、植被状况、天空可视程度，评估夏季热舒适潜力。")
+    
+    with col3:
+        st.markdown("### 🔊 声环境分析")
+        st.markdown("上传街道录音，自动提取噪声均值、峰值和噪声类型，评估声环境质量等级。")
+    
+    st.markdown("---")
+    
+    st.markdown("### 🛠️ 使用方式")
+    st.markdown("""
+    1. 在左侧上传一种或多种数据文件（三路输入各自独立）
+    2. 输入你的分析需求
+    3. 点击「开始分析」获取综合结论
+    4. 点击「生成优化策略与效果图」获取街道优化方案
+    """)
+    
+    st.markdown("---")
+    
+    st.markdown("### 📌 支持的输入格式")
+    st.markdown("""
+    - **气候数据**：CSV 文件，包含 SVF、TVF、PET、MRT 等指标
+    - **街景图片**：JPG 或 PNG 格式
+    - **环境音频**：WAV 或 MP3 格式
+    """)
+    
+    st.info("👈 从左侧上传数据开始分析")
 
 else:
     # 问题输入框
